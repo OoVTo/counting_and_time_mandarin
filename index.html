@@ -424,8 +424,8 @@
 </header>
 
 <nav class="tabs">
-  <button class="tab-btn active" onclick="switchSection('numbers')">🔢 Numbers 1–100</button>
-  <button class="tab-btn" onclick="switchSection('time')">🕐 Telling Time</button>
+  <button class="tab-btn active" onclick="switchSection('num', this)">🔢 Numbers 1–100</button>
+  <button class="tab-btn" onclick="switchSection('time', this)">🕐 Telling Time</button>
 </nav>
 
 <main>
@@ -952,11 +952,11 @@ function resetSection(sec) {
 // ═══════════════════════════════════════════════
 // TAB SWITCHING
 // ═══════════════════════════════════════════════
-function switchSection(sec) {
+function switchSection(sec, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(`section-${sec}`).classList.add('active');
-  event.currentTarget.classList.add('active');
+  btn.classList.add('active');
   hideComplete(sec);
   getAudio().resume();
 }
